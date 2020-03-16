@@ -1,0 +1,8 @@
+187.R1.merged.fastq.gz	   67_AW_A.R1.merged.fastq.gz  790.R1.merged.fastq.gz
+187.R2.merged.fastq.gz	   67_AW_A.R2.merged.fastq.gz  790.R2.merged.fastq.gz
+38.R1.merged.fastq.gz	   716.R1.merged.fastq.gz      81.R1.merged.fastq.gz
+38.R2.merged.fastq.gz	   716.R2.merged.fastq.gz      81.R2.merged.fastq.gz
+59_MWA.R1.merged.fastq.gz  787A.R1.merged.fastq.gz
+59_MWA.R2.merged.fastq.gz  787A.R2.merged.fastq.gz
+65.R1.merged.fastq.gz	   78.R1.merged.fastq.gz 
+65.R2.merged.fastq.gz	   78.R2.merged.fastq.gz
