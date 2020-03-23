@@ -10,7 +10,7 @@
 
 #   Where are we storing the output files?
 #       Final directory is ${OUT_DIR}/Name_of_Handler
-OUT_DIR=/panfs/roc/groups/9/morrellp/gfrascar/Bean/sequence_processing/QC_before
+OUT_DIR=/panfs/roc/groups/9/morrellp/gfrascar/Bean/sequence_processing/Adapters_trim
 
 #   Name this project
 PROJECT=Common_Bean_Nuclear
@@ -75,7 +75,7 @@ QA_SAMPLES=/panfs/roc/groups/9/morrellp/gfrascar/Bean/fastq/sample_list.txt
 #   What is the size of the genome in basepairs (for whole-genome sequencing)
 #   or capture region (for exome capture)?
 #   If unavailable, put "NA"
-TARGET=600 Mb
+TARGET=600000000
 
 ############################################
 ##########    Adapter_Trimming    ##########
@@ -87,7 +87,7 @@ AT_QSUB="mem=1gb,nodes=1:ppn=4,walltime=10:00:00"
 
 #   Where is the list of original FastQ files?
 #       Include the full file path.
-RAW_SAMPLES=/panfs/roc/groups/9/morrellp/gfrascar/Bean/fastq
+RAW_SAMPLES=/panfs/roc/groups/9/morrellp/gfrascar/Bean/fastq/sample_list.txt
 
 #   What shared suffix do the forward samples have?
 #       Example: _1_sequence.txt.gz
@@ -103,7 +103,7 @@ REVERSE_NAMING=.R2.merged.fastq.gz
 #       match your samples
 
 #	  Where is the adapter file? Include the full physical file path.
-ADAPTERS=
+ADAPTERS=/panfs/roc/groups/9/morrellp/shared/References/Adapters/complete_fastqc_adapters.fa
 
 #   What is Scythe's prior contamination rate?
 #       Scythe's documentation suggests starting at
