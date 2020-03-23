@@ -10,7 +10,7 @@
 
 #   Where are we storing the output files?
 #       Final directory is ${OUT_DIR}/Name_of_Handler
-OUT_DIR=/panfs/roc/groups/9/morrellp/gfrascar/Bean/sequence_processing/Adapters_trim
+OUT_DIR=/panfs/roc/groups/9/morrellp/gfrascar/Bean/sequence_processing/Quality_Assessment
 
 #   Name this project
 PROJECT=Common_Bean_Nuclear
@@ -47,7 +47,7 @@ MSI=true
 
 #   Are you submitting the job with qsub from PBS (Portable Batch System)
 #       Choose from: "true" or "false"
-USE_PBS=trues
+USE_PBS=true
 
 #   Do the quality scores need to be adjusted for GATK? Default: false
 #       Change to true if you get errors from GATK like:
