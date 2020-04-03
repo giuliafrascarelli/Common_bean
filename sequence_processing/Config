@@ -10,7 +10,7 @@
 
 #   Where are we storing the output files?
 #       Final directory is ${OUT_DIR}/Name_of_Handler
-OUT_DIR=/panfs/roc/groups/9/morrellp/gfrascar/Bean/sequence_processing/Adapters_trim
+OUT_DIR=/panfs/roc/groups/9/morrellp/gfrascar/Bean/sequence_processing/QC_after_trim
 
 #   Name this project
 PROJECT=Common_Bean_Nuclear
@@ -70,7 +70,7 @@ QA_QSUB="mem=1gb,nodes=1:ppn=4,walltime=6:00:00"
 
 #   Provide a list of FastQ, SAM, or BAM files to be used
 #       Include the full file path.
-QA_SAMPLES=/panfs/roc/groups/9/morrellp/gfrascar/Bean/fastq/sample_list.txt
+QA_SAMPLES=/panfs/roc/groups/9/morrellp/gfrascar/Bean/sequence_processing/Adapters_trim/Adapter_Trimming/sample_list.txt
 
 #   What is the size of the genome in basepairs (for whole-genome sequencing)
 #   or capture region (for exome capture)?
@@ -91,11 +91,11 @@ RAW_SAMPLES=/panfs/roc/groups/9/morrellp/gfrascar/Bean/fastq/sample_list.txt
 
 #   What shared suffix do the forward samples have?
 #       Example: _1_sequence.txt.gz
-FORWARD_NAMING=.R1.merged.fastq.gz
+FORWARD_NAMING=_R1_merged.fastq.gz
 
 #   What shared suffix do the reverse samples have?
 #       Example: _2_sequence.txt.gz
-REVERSE_NAMING=.R2.merged.fastq.gz
+REVERSE_NAMING=_R2_merged.fastq.gz
 
 #   If you have single-end samples, leave
 #       FORWARD_NAMING and REVERSE_NAMING
@@ -103,12 +103,12 @@ REVERSE_NAMING=.R2.merged.fastq.gz
 #       match your samples
 
 #	  Where is the adapter file? Include the full physical file path.
-ADAPTERS=/panfs/roc/groups/9/morrellp/gfrascar/Bean/sequence_processing/Adapters.fa
+ADAPTERS=/panfs/roc/groups/9/morrellp/gfrascar/Bean/sequence_processing/illumina_adapters_from_personal_genomics.fa
 
 #   What is Scythe's prior contamination rate?
 #       Scythe's documentation suggests starting at
 #       0.05 and then experimenting as needed
-PRIOR=0.05
+PRIOR=0.1
 
 ############################################
 ##########    Quality_Trimming    ##########
