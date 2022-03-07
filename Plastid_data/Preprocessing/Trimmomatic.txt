@@ -1,0 +1,1 @@
+java -jar /opt/Trimmomatic-0.38/trimmomatic-0.38.jar PE -threads 8 -phred33 -summary 81_S23_summary.txt  /fagiolo/raw/81_S23_R1_001.fastq.gz /fagiolo/raw/81_S23_R2_001.fastq.gz -baseout 81_S23 ILLUMINACLIP:/opt/Trimmomatic-0.38/adapters/adapters.fa:2:20:10:5 LEADING:20 TRAILING:20 SLIDINGWINDOW:10:20 MINLEN:75

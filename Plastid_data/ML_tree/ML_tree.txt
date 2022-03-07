@@ -1,0 +1,3 @@
+./raxmlHPC-PTHREADS -f a -p 12345 -s /Merged.phy  -x 12345 -N 100000 -m GTRCAT -V  -n merged_raxml_100000  -w /home/dago/Documenti/Tree/ -T 8
+
+./raxmlHPC-PTHREADS -f b -m GTRCAT -s /Merged.phy -z /Tree/RAxML_bootstrap.merged_raxml_100000 -t /Tree/RAxML_bestTree.merged_raxml_100000  -w /home/dago/Documenti/Tree/ -n  bootTree -T 8

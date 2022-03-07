@@ -1,0 +1,25 @@
+#No singletons
+
+#This script creates a vcf file of all singletons
+ vcftools  --vcf Common_Bean_raw_variants.vcf  --mac 1 --max-mac 1  --min-alleles 2 --max-alleles 2 --recode --out singletons
+
+#To extract the position of the singletons 
+bcftools query -f '%POS\n' singletons.recode.vcf > singletons_pos.txt
+
+#To filtered those from the vcf file
+vcftools --vcf Common_Bean_raw_variants.vcf --exclude-positions singletons_pos.txt --recode --recode-INFO-all --out final_vcf
+
+#Filtering for biallelic sites
+/bcftools/bcftools view --min-alleles 2 --max-alleles 2 SNPs_only.recode.vcf --output-type z --output P_vulgaris_BIallelic.vcf
+
+#Exclude sites on the basis of the proportion of missing data (defined to be between 0 and 1, where 0 allows sites that are completely missing and 1 indicates no missing data allowed) we keep only sites present in at least 50% of individuals. => --max-missing 0.5 tells it to filter genotypes called below 50% (across all individuals) 
+/bcftools/bcftools view --include 'F_MISSING<=0.5' P_vulgaris_BIallelic.vcf --output-type z --output P_vulgaris_NOindels_BIallelic_siteMISS0.5.vcf.gz
+
+#Remove the sites with Minor Allele Frequency greater than or equal to the "--maf" value (0.01)
+/bcftools/bcftools view --exclude 'MAF <= 0.01' P_vulgaris_NOindels_BIallelic_siteMISS0.5.vcf --output-type z --output P_vulgaris_NOindels_BIallelic_siteMISS0.5_MAF0.01.vcf
+
+#keep only Polymorphic sites => keep sites with at least one NON REFERENCE allele
+/bcftools/bcftools view --min-ac 1 P_vulgaris_NOindels_BIallelic_siteMISS0.5_MAF0.01.vcf--output-type z --output P_vulgaris_FINAL_filtered.vcf
+
+#To run the stats for the final vcf
+/bcftools/bcftools stats P_vulgaris_FINAL_filtered.vcf > P_vulgaris_FINAL_filtered_stats.txt

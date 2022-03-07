@@ -1,0 +1,14 @@
+#FastQscrenn
+/opt/fastq_screen_v0.13.0/fastq_screen  --aligner bowtie2 --outdir /fagiolo/FQscreen/78_S21 --tag -conf /opt/fastq_screen_v0.13.0/fastq_screen.conf  --filter 3- /fagiolo/Trimm/78_S21/78_S21_1P /fagiolo/Trimm/78_S21/78_S21_2P /fagiolo/Trimm/78_S21/78_S21_1U /fagiolo/Trimm/78_S21/78_S21_2U
+
+#To sincronize files obtained from fastq_screen
+python /opt/fastqCombinePairedEnd.py  /fagiolo/FQscreen/78_S21/78_S21_1P.tagged_filter.fastq /fagiolo/FQscreen/78_S21/78_S21_2P.tagged_filter.fastq
+
+# Bowtine2 
+/opt/bowtie2-2.3.4.3-linux-x86_64/bowtie2 -x /fagiolo/ref_genomes/NC_009259  -1 /fagiolo/FQscreen/78_S21/78_S21_1P.tagged_filter.fastq_pairs_R1.fastq  -2 /fagiolo/FQscreen/78_S21/78_S21_2P.tagged_filter.fastq_pairs_R2.fastq  -S ./78_S21.sam
+
+#Samtools sam->bam
+/opt/samtools-1.9/samtools view -u 78_S21.sam | samtools sort -o 78_S21_sorted.bam
+
+
+

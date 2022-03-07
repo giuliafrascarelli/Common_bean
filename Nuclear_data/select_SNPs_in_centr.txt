@@ -1,0 +1,6 @@
+#To recreate the file with increase sizes
+bedtools slop -i  ./centromer_regions_no_increase.bed -g  ../common_bean.genome -b 0.2 -pct -header >  add_ranges.bed
+
+
+#To select only snps in centromeric regions using the bed file with increased sizes
+bedtools intersect -a P_vulgaris_FINAL_filtered.vcf -b ./centromers_byChr/add_ranges.bed -header >  P_vulgaris_FINAL_filtered_only_centromers.vcf

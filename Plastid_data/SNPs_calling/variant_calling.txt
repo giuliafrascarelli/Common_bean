@@ -1,0 +1,9 @@
+#This script calls variants in plastids
+
+bcftools-1.9/bcftools mpileup -f /ref_genomes/NC_009259.fasta /P43_S49/P43_S49_sorted.bam -I -Ov | /bcftools-1.9/bcftools call  -c -v -Ov > P43_S49.vcf
+
+#Indexing
+
+tabix -p vcf P43_S49.vcf.gz
+
+

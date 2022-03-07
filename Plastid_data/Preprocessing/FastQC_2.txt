@@ -1,0 +1,1 @@
+/opt/FastQC/fastqc  /fagiolo/Trimm/715_S64/715_S64_1P  /fagiolo/Trimm/715_S64/715_S64_2P  -o /fagiolo/QC2/715_S64

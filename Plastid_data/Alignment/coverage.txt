@@ -1,0 +1,16 @@
+#Coverage-Badtools
+/opt/bedtools2/bin/bedtools genomecov -ibam 78_S21_sorted.bam -g /fagiolo/ref_genomes/NC_009259.fasta -d > 78_S21_gcov.txt
+
+#Coverage on average
+cut -f 3 78_S21_gcov.txt | awk 'BEGIN {total=0}{total+=$1} END {printf("%.2f\n",total/NR)}'
+
+#To plot coverage
+R
+library(ggplot2)
+ setwd("/fagiolo/perbase_coverage/78_S21/")
+ myd <- read.table("78_S21_gcov.txt", sep="\t", header=T)
+ df <- data.frame(genome_coordinates=myd[,c(2)], per_base_coverage=myd[,c(3)])
+ png("ECa038_cov.png", res=300, width=30, height=15, units="cm")
+ ggplot(data=df, aes(x=genome_coordinates, y=per_base_coverage)) + geom_line(color = "#0047b3", size = 0.1) +geom_area(fill = "#0066ff")+ coord_cartesian(xlim=c(0,150000), ylim=c(0,2000))
+dev.off()
+

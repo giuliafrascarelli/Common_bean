@@ -1,0 +1,2 @@
+#This script merges the vcf files 
+/bcftools-1.9/bcftools merge P43_S49.vcf.gz 15_S5.vcf.gz P43_S49.vcf.gz -0 -Ov -o Merged.vcf
