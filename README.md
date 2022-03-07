@@ -4,11 +4,11 @@
 
 ## Plastid data
 ### Samples 
-100 *Phaeolus* samples
+100 *Phaseolus* samples
 
 ### Process:
 1. Preprocessing: 
-    * FasstQC_1
+    * FastQC_1
     * Trimmomatic
     * FastQC_2
     
